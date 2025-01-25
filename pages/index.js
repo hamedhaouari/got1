@@ -9,7 +9,7 @@ export default function Home() {
     try {
       setLoading(true);
       setError(null);
-      const response = await fetch('/api/scrape');
+      const response = await fetch('/api/got-scrape');
       const result = await response.json();
       setData(result);
     } catch (err) {
