@@ -8,8 +8,8 @@ export default async function handler(req, res) {
 
   try {
     // Base URL for ASOIAF Wiki
-    const baseUrl = 'https://awoiaf.westeros.org';
-    const url = `${baseUrl}/index.php/List_of_Houses`;
+    const baseUrl = 'https://www.facebook.com/groups/BnBTunisie';
+    const url = `${baseUrl}`;
     
     // Fetch the webpage
     const response = await axios.get(url);
@@ -19,7 +19,7 @@ export default async function handler(req, res) {
     const houses = [];
     
     // Scrape major houses
-    $('.mw-parser-output').find('h3, h4').each((i, element) => {
+    /* $('.mw-parser-output').find('h3, h4').each((i, element) => {
       const nextUl = $(element).next('ul');
       if (nextUl.length) {
         const region = $(element).find('.mw-headline').text();
@@ -76,12 +76,12 @@ export default async function handler(req, res) {
           return house;
         }
       })
-    );
+    ); */
 
     return res.status(200).json({
       success: true,
       timestamp: new Date().toISOString(),
-      data: detailedHouses
+      data: $
     });
 
   } catch (error) {
